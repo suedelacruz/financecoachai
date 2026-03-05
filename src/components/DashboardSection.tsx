@@ -5,10 +5,10 @@ import { DollarSign, TrendingDown, TrendingUp, PiggyBank, AlertTriangle } from "
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from "recharts";
 
 const CHART_COLORS = [
-  "hsl(168, 60%, 38%)", "hsl(210, 60%, 50%)", "hsl(38, 92%, 50%)",
-  "hsl(280, 50%, 55%)", "hsl(0, 72%, 55%)", "hsl(168, 40%, 60%)",
-  "hsl(210, 40%, 65%)", "hsl(38, 60%, 60%)", "hsl(320, 50%, 55%)",
-  "hsl(152, 50%, 45%)", "hsl(180, 40%, 50%)",
+  "hsl(174, 58%, 40%)", "hsl(175, 75%, 25%)", "hsl(172, 66%, 50%)",
+  "hsl(210, 60%, 50%)", "hsl(38, 92%, 50%)", "hsl(280, 50%, 55%)",
+  "hsl(0, 72%, 55%)", "hsl(152, 50%, 45%)", "hsl(320, 50%, 55%)",
+  "hsl(180, 40%, 50%)", "hsl(210, 40%, 65%)",
 ];
 
 interface Props {
