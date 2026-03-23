@@ -1,14 +1,23 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { InputsSection } from "@/components/InputsSection";
 import { DashboardSection } from "@/components/DashboardSection";
 import { AICoachSection } from "@/components/AICoachSection";
 import { MonthlyPlanSection } from "@/components/MonthlyPlanSection";
+import { ScenarioSimulator } from "@/components/ScenarioSimulator";
+import { ExpenseHistory } from "@/components/ExpenseHistory";
+import { useFinancePersistence } from "@/hooks/use-finance-persistence";
 import { type FinanceData } from "@/lib/finance";
-import { Wallet, BarChart3, Brain, CalendarDays } from "lucide-react";
+import { Wallet, BarChart3, Brain, CalendarDays, FlaskConical, History } from "lucide-react";
 
 const Index = () => {
   const [data, setData] = useState<FinanceData>({ monthlyIncome: 0, expenses: [] });
+
+  const handleChange = useCallback((newData: FinanceData) => {
+    setData(newData);
+  }, []);
+
+  const { saveSnapshot } = useFinancePersistence(data, handleChange);
 
   return (
     <div className="min-h-screen bg-background">
@@ -28,7 +37,7 @@ const Index = () => {
       {/* Main */}
       <main className="container max-w-5xl mx-auto px-4 py-6">
         <Tabs defaultValue="inputs" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4 h-auto p-1">
+          <TabsList className="grid w-full grid-cols-6 h-auto p-1">
             <TabsTrigger value="inputs" className="gap-1.5 py-2.5 text-xs sm:text-sm">
               <Wallet className="h-4 w-4 hidden sm:block" /> Inputs
             </TabsTrigger>
@@ -36,15 +45,21 @@ const Index = () => {
               <BarChart3 className="h-4 w-4 hidden sm:block" /> Dashboard
             </TabsTrigger>
             <TabsTrigger value="coach" className="gap-1.5 py-2.5 text-xs sm:text-sm">
-              <Brain className="h-4 w-4 hidden sm:block" /> AI Coach
+              <Brain className="h-4 w-4 hidden sm:block" /> Coach
             </TabsTrigger>
             <TabsTrigger value="plan" className="gap-1.5 py-2.5 text-xs sm:text-sm">
               <CalendarDays className="h-4 w-4 hidden sm:block" /> Plan
             </TabsTrigger>
+            <TabsTrigger value="simulator" className="gap-1.5 py-2.5 text-xs sm:text-sm">
+              <FlaskConical className="h-4 w-4 hidden sm:block" /> Simulate
+            </TabsTrigger>
+            <TabsTrigger value="history" className="gap-1.5 py-2.5 text-xs sm:text-sm">
+              <History className="h-4 w-4 hidden sm:block" /> History
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="inputs">
-            <InputsSection data={data} onChange={setData} />
+            <InputsSection data={data} onChange={handleChange} />
           </TabsContent>
           <TabsContent value="dashboard">
             <DashboardSection data={data} />
@@ -54,6 +69,12 @@ const Index = () => {
           </TabsContent>
           <TabsContent value="plan">
             <MonthlyPlanSection data={data} />
+          </TabsContent>
+          <TabsContent value="simulator">
+            <ScenarioSimulator data={data} />
+          </TabsContent>
+          <TabsContent value="history">
+            <ExpenseHistory data={data} onLoadSnapshot={handleChange} saveSnapshot={saveSnapshot} />
           </TabsContent>
         </Tabs>
       </main>
