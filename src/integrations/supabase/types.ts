@@ -14,7 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      current_finance_data: {
+        Row: {
+          expenses: Json
+          id: string
+          monthly_income: number
+          updated_at: string
+        }
+        Insert: {
+          expenses?: Json
+          id?: string
+          monthly_income?: number
+          updated_at?: string
+        }
+        Update: {
+          expenses?: Json
+          id?: string
+          monthly_income?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      financial_snapshots: {
+        Row: {
+          created_at: string
+          expenses: Json
+          health_status: string
+          id: string
+          label: string | null
+          monthly_income: number
+          net_cash_flow: number
+          savings_rate: number
+          total_expenses: number
+        }
+        Insert: {
+          created_at?: string
+          expenses?: Json
+          health_status?: string
+          id?: string
+          label?: string | null
+          monthly_income?: number
+          net_cash_flow?: number
+          savings_rate?: number
+          total_expenses?: number
+        }
+        Update: {
+          created_at?: string
+          expenses?: Json
+          health_status?: string
+          id?: string
+          label?: string | null
+          monthly_income?: number
+          net_cash_flow?: number
+          savings_rate?: number
+          total_expenses?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
