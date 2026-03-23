@@ -40,9 +40,9 @@ export function useFinancePersistence(
         .upsert({
           id: "current",
           monthly_income: data.monthlyIncome,
-          expenses: data.expenses as unknown as Record<string, unknown>[],
+          expenses: JSON.parse(JSON.stringify(data.expenses)) as Json,
           updated_at: new Date().toISOString(),
-        })
+        } as any)
         .then(() => {});
     }, 1000);
 
