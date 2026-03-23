@@ -55,13 +55,13 @@ export function useFinancePersistence(
       const metrics = computeMetrics(data);
       const { error } = await supabase.from("financial_snapshots").insert({
         monthly_income: data.monthlyIncome,
-        expenses: data.expenses as unknown as Record<string, unknown>[],
+        expenses: JSON.parse(JSON.stringify(data.expenses)) as Json,
         total_expenses: metrics.totalExpenses,
         net_cash_flow: metrics.netCashFlow,
         savings_rate: metrics.savingsRate,
         health_status: metrics.healthStatus,
         label: label || null,
-      });
+      } as any);
       return !error;
     },
     [data]
