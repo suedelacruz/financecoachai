@@ -1,73 +1,110 @@
-# Welcome to your Lovable project
+# FinanceCoachAI
 
-## Project info
+FinanceCoachAI is a web application designed to help users improve their financial habits through personalized expense analysis and AI-powered recommendations.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+The application allows users to track their expenses, identify financial red flags, and receive suggestions on how to optimize their spending and improve their overall financial health.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+* User authentication with Supabase
+* Add, edit, and delete expenses
+* Expense tracking and financial analysis
+* AI-generated recommendations
+* Identification of spending red flags
+* Personalized financial improvement suggestions
+* Responsive and modern UI
+* Cloud deployment with Vercel
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## Technologies Used
 
-**Use your preferred IDE**
+* Lovable
+* React
+* TypeScript
+* Supabase
+* Vercel
+* GitHub
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## CRUD Functionality
 
-Follow these steps:
+The application fully supports CRUD operations:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+* Create new expenses
+* Read and display expense data
+* Update existing expenses
+* Delete expenses
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Deployment
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+The application is deployed using Vercel.
+
+---
+
+## Local Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/suedelacruz/financecoachai.git
+```
+
+### 2. Navigate to the project folder
+
+```bash
+cd financecoachai
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Configure environment variables
+
+Create a `.env` file and add the following variables:
+
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+### 5. Run the development server
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Project Purpose
 
-**Use GitHub Codespaces**
+This project was developed as a final project for the IoT Connected Objects — Application Development course.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The objective of the project is to demonstrate:
 
-## What technologies are used for this project?
+* Full-stack web development
+* Supabase integration
+* CRUD operations
+* Authentication and database management
+* Cloud deployment
+* Version control with GitHub
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Author
 
-## How can I deploy this project?
+Developed by Sue de la Cruz.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
 
-## Can I connect a custom domain to my Lovable project?
+## Live Project
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+* Live Application: https://financecoachai.vercel.app/
+* GitHub Repository: https://github.com/suedelacruz/financecoachai
